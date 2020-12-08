@@ -13,6 +13,20 @@ class SomeDataServiceStub implements SomeDataService {
 	}
 }
 
+class SomeDataServiceEmptyStub implements SomeDataService {
+	@Override
+	public int[] retrieveAllData() {
+		return new int[] {};
+	}
+}
+
+class SomeDataServiceOneElementStub implements SomeDataService {
+	@Override
+	public int[] retrieveAllData() {
+		return new int[] {5};
+	}
+}
+
 class SomeBusinessStubTest {
 
 	@Test
@@ -27,7 +41,8 @@ class SomeBusinessStubTest {
 	@Test
 	void calculateSum_empty() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
-		int actualResult = business.calculateSum(new int [] {});
+		business.setSomeDataService(new SomeDataServiceEmptyStub());
+		int actualResult = business.calculateSumUsingDataService();
 		int expectedResult = 0;
 		assertEquals(expectedResult, actualResult);
 	}
@@ -35,7 +50,8 @@ class SomeBusinessStubTest {
 	@Test
 	void calculateSum_oneValue() {
 		SomeBusinessImpl business = new SomeBusinessImpl();
-		int actualResult = business.calculateSum(new int [] {5});
+		business.setSomeDataService(new SomeDataServiceOneElementStub());
+		int actualResult = business.calculateSumUsingDataService();
 		int expectedResult = 5;
 		assertEquals(expectedResult, actualResult);
 	}
