@@ -15,7 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 public class SomeBusinessMockTest {
 
 	@InjectMocks
-	SomeBusinessImpl business;
+	SomeBusinessImpl business = new SomeBusinessImpl();
 
 	@Mock
 	SomeDataService dataServiceMock;
