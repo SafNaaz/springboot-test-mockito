@@ -50,5 +50,6 @@ public class ListMockTest {
         verify(mock).get(0);
         verify(mock, times(2)).get(anyInt());
         verify(mock, atLeast(1)).get(anyInt());
+        verify(mock, never()).get(2);
     }
 }
