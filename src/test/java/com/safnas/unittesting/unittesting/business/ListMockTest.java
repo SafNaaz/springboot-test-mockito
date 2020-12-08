@@ -16,4 +16,12 @@ public class ListMockTest {
         when(mock.size()).thenReturn(5);
         assertEquals(5,mock.size());
     }
+
+    @Test
+    public void returnDifferentValues(){
+        List mock = mock(List.class);
+        when(mock.size()).thenReturn(5).thenReturn(10);
+        assertEquals(5,mock.size());
+        assertEquals(10,mock.size());
+    }
 }
