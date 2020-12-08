@@ -10,9 +10,10 @@ import static org.mockito.Mockito.when;
 
 public class ListMockTest {
 
+    List mock = mock(List.class);
+
     @Test
     public void size_basic(){
-        List mock = mock(List.class);
         when(mock.size()).thenReturn(5);
         assertEquals(5,mock.size());
     }
@@ -23,5 +24,12 @@ public class ListMockTest {
         when(mock.size()).thenReturn(5).thenReturn(10);
         assertEquals(5,mock.size());
         assertEquals(10,mock.size());
+    }
+
+    @Test
+    public void returnWithParameters(){
+        when(mock.get(0)).thenReturn("Safnas");
+        assertEquals("Safnas", mock.get(0));
+        assertEquals(null, mock.get(1));
     }
 }
