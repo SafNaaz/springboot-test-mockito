@@ -13,4 +13,10 @@ public class JsonAssertTest {
         String expectedResponse = "{\"id\":1,\"name\":\"Ball\",\"price\":10,\"quantity\":100}";
         JSONAssert.assertEquals(expectedResponse, actualResponse, true);
     }
+
+    @Test
+    public void jsonAssert_StrictFalse() throws JSONException {
+        String expectedResponse = "{\"id\":1,\"name\":\"Ball\"}";
+        JSONAssert.assertEquals(expectedResponse, actualResponse, false);
+    }
 }
