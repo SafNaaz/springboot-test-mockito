@@ -1,4 +1,4 @@
-package com.safnas.unittesting.unittesting;
+package com.safnas.unittesting.unittesting.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
