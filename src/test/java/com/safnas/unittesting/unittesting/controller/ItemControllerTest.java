@@ -27,7 +27,7 @@ public class ItemControllerTest {
 
         MvcResult result = mockMvc.perform(request)
                 .andExpect(status().isOk())
-                .andExpect(content().string("{\"id\":1,\"name\":\"Ball\",\"price\":10,\"quantity\":100}"))
+                .andExpect(content().json("{\"id\":1 ,\"name\":\"Ball\",\"price\":10,\"quantity\":100}"))
                 .andReturn();
     }
 }
