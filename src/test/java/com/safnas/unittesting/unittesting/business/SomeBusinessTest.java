@@ -30,4 +30,12 @@ class SomeBusinessTest {
 		assertEquals(expectedResult, actualResult);
 	}
 
+	@Test
+	void calculateSum_emptyarray() {
+		SomeBusinessImpl business = new SomeBusinessImpl();
+		int actualResult = business.calculateSum(new int[1]);
+		int expectedResult = 0;
+		assertEquals(expectedResult, actualResult);
+	}
+
 }

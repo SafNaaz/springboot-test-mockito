@@ -2,6 +2,8 @@ package com.safnas.unittesting.unittesting.business;
 
 import com.safnas.unittesting.unittesting.data.SomeDataService;
 
+import java.util.Arrays;
+
 public class SomeBusinessImpl {
 	
 	private SomeDataService someDataService;
@@ -11,11 +13,7 @@ public class SomeBusinessImpl {
 	}
 
 	public int calculateSum(int[] data) {
-		int sum = 0;
-		for(int value:data) {
-			sum += value;
-		}
-		return sum;
+		return Arrays.stream(data).reduce(Integer::sum).orElse(0);
 	}
 	
 	public int calculateSumUsingDataService() {
